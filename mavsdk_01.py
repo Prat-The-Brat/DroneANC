@@ -2,12 +2,12 @@ import asyncio
 
 import mavsdk.core
 from mavsdk import System
-#mavsdk_server_address = "serial:///dev/ttyACM0:115200"
+#mavsdk_server_address = "udp://127.0.0.1:14540"
 
 async def run():
     # connect to the drone
     drone = System()
-    await drone.connect(system_address="udp://:14540")
+    await drone.connect(system_address="udp://127.0.0.1:14540")
 
     # get the list of parameters
     all_params = await drone.param.get_all_params()
